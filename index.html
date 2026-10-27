@@ -44,7 +44,7 @@
 
       .banner-three-area {
         padding-top: 20px !important;
-        padding-bottom: 20px !important;
+        padding-bottom: 40px !important;
         overflow: visible !important;
       }
 
@@ -54,7 +54,7 @@
         width: 100% !important;
       }
 
-      /* Perfectly Centered Giant PORTFOLIO Title */
+      /* 1. Shifted Lower, Perfectly Centered Giant PORTFOLIO Title */
       .banner-three-title {
         text-align: center !important;
         display: block !important;
@@ -63,33 +63,35 @@
         margin-right: auto !important;
         text-transform: uppercase !important;
         font-weight: 900 !important;
-        font-size: clamp(65px, 15vw, 230px) !important;
-        line-height: 0.82 !important;
+        font-size: clamp(65px, 15vw, 220px) !important;
+        line-height: 0.85 !important;
         letter-spacing: 2px !important;
-        color: #0a0a0a !important;
+        color: #000000 !important;
         position: relative !important;
         z-index: 1 !important;
-        margin-bottom: 20px !important;
+        margin-top: clamp(45px, 6.5vw, 90px) !important; /* Shifted lower as requested */
+        margin-bottom: clamp(130px, 14vw, 200px) !important; /* Space for the bottom half of the photo */
       }
 
-      /* Photo Perfectly Centered & Overlapping PORTFOLIO Title */
+      /* 2. Photo: Exactly HALF (top ~50%) overlays directly on the PORTFOLIO title */
       .banner-three-man {
         position: absolute !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
-        bottom: 0 !important;
-        inset-block-end: 0 !important;
+        top: clamp(45px, 6.5vw, 90px) !important; /* Anchored to match top of title */
+        bottom: auto !important;
+        inset-block-end: auto !important;
         z-index: 3 !important;
         pointer-events: none;
       }
 
       .banner-three-man img.tejasvi-portrait {
-        max-height: 385px !important;
+        height: clamp(320px, 28vw, 385px) !important;
         width: auto !important;
         max-width: 290px !important;
         object-fit: cover !important;
-        border-radius: 22px !important;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28) !important;
+        border-radius: 24px !important;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3) !important;
         border: 4px solid #ffffff !important;
         pointer-events: auto;
         transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -97,7 +99,7 @@
 
       .banner-three-man img.tejasvi-portrait:hover {
         transform: scale(1.02);
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.38) !important;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4) !important;
       }
 
       .banner-three-wrap {
@@ -106,18 +108,22 @@
       }
 
       @media screen and (max-width: 991px) {
+        .banner-three-title {
+          margin-top: 25px !important;
+          margin-bottom: 20px !important;
+        }
         .banner-three-man {
           position: relative !important;
           left: auto !important;
           transform: none !important;
+          top: auto !important;
           bottom: auto !important;
-          inset-block-end: auto !important;
-          margin: -50px auto 25px auto !important;
+          margin: -90px auto 25px auto !important; /* Overlays top half onto title on mobile */
           text-align: center !important;
         }
         .banner-three-man img.tejasvi-portrait {
-          max-height: 320px !important;
-          max-width: 240px !important;
+          max-height: 330px !important;
+          max-width: 250px !important;
         }
       }
 
