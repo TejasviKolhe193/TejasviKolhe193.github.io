@@ -109,7 +109,67 @@
         color: #7dd3fc;
       }
     </style>
-  </head>
+  
+    <!-- Admin Visitor Logger Styles -->
+    <style>
+      .admin-lock-btn {
+        background: transparent;
+        border: none;
+        color: #4b5563;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 4px;
+        transition: color 0.2s;
+        vertical-align: middle;
+        margin-left: 6px;
+      }
+      .admin-lock-btn:hover {
+        color: #10b981;
+      }
+      #adminVisitorModal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 999999;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(14px);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .admin-modal-dialog {
+        background: #11151d;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        width: 100%;
+        max-width: 1050px;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+        position: relative;
+        color: #f3f4f6;
+      }
+      .admin-login-card {
+        max-width: 440px;
+        margin: 40px auto;
+        padding: 36px;
+        background: #161b26;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        text-align: center;
+      }
+      .shake {
+        animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+      }
+      @keyframes shake {
+        10%, 90% { transform: translate3d(-1px, 0, 0); }
+        20%, 80% { transform: translate3d(2px, 0, 0); }
+        30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+        40%, 60% { transform: translate3d(4px, 0, 0); }
+      }
+    </style>
+
+</head>
 
   <body class="tw-magic-cursor">
     <!--==================== Preloader Start ====================-->
@@ -283,7 +343,7 @@
                 </li>
                 <li>
                   <span class="text-main-two-600 tw-text-xl"><i class="ph ph-graduation-cap"></i></span>
-                  <span class="text-white">Symbiosis Institute of Technology, Nagpur</span>
+                  <span class="text-white">Symbiosis Institute of Technology, Nagpur <button id="adminPortalBtn" class="admin-lock-btn" title="Admin Portal (Password Required)" aria-label="Admin Portal"><i class="ph ph-lock-key"></i></button></span>
                 </li>
               </ul>
             </div>
@@ -542,7 +602,7 @@
                       <div class="col-lg-6">
                         <h3 class="tw-text-2xl fw-bold text-heading tw-mb-4">Engineering with Curiosity &amp; Rigor</h3>
                         <p class="tw-text-base text-muted tw-mb-4 leading-relaxed">
-                          I am a Computer Science &amp; Engineering student at Symbiosis Institute of Technology, Nagpur. My work bridges predictive machine learning, generative multi-agent systems, and production software engineering.
+                          I am a Computer Science &amp; Engineering student at Symbiosis Institute of Technology, Nagpur <button id="adminPortalBtn" class="admin-lock-btn" title="Admin Portal (Password Required)" aria-label="Admin Portal"><i class="ph ph-lock-key"></i></button>. My work bridges predictive machine learning, generative multi-agent systems, and production software engineering.
                         </p>
                         <p class="tw-text-base text-muted tw-mb-4 leading-relaxed">
                           Rather than viewing machine learning models as black boxes, I focus deeply on <strong>Explainable AI (XAI)</strong> with SHAP and LIME, algorithmic fairness, and building intuitive user experiences so that complex technical systems deliver dependable real-world utility.
@@ -564,7 +624,7 @@
                           <div class="tw-mb-4">
                             <span class="tw-text-xs fw-bold text-uppercase text-muted d-block">University &amp; Degree</span>
                             <strong class="tw-text-sm text-heading">B.Tech in Computer Science &amp; Engineering</strong>
-                            <div class="tw-text-xs text-muted">Symbiosis Institute of Technology, Nagpur (2023 &ndash; 2027)</div>
+                            <div class="tw-text-xs text-muted">Symbiosis Institute of Technology, Nagpur <button id="adminPortalBtn" class="admin-lock-btn" title="Admin Portal (Password Required)" aria-label="Admin Portal"><i class="ph ph-lock-key"></i></button> (2023 &ndash; 2027)</div>
                             <div class="tw-text-xs text-main-two-600 fw-bold tw-mt-1">CGPA: 8.44 / 10</div>
                           </div>
                           <div class="tw-mb-4">
@@ -1163,7 +1223,7 @@
                       <div>
                         <h3 class="tw-text-xl text-white tw-mb-1">Tejasvi Kolhe</h3>
                         <p class="text-neutral-400 tw-text-sm tw-mb-1">B.Tech CSE Student &bull; AI/ML Developer</p>
-                        <span class="tw-text-xs text-muted">Symbiosis Institute of Technology, Nagpur</span>
+                        <span class="tw-text-xs text-muted">Symbiosis Institute of Technology, Nagpur <button id="adminPortalBtn" class="admin-lock-btn" title="Admin Portal (Password Required)" aria-label="Admin Portal"><i class="ph ph-lock-key"></i></button></span>
                       </div>
                       <div class="footer-three-social tw-mt-3">
                         <ul class="d-flex align-items-center tw-gap-2">
@@ -1263,7 +1323,7 @@
                       <h4 class="tw-text-2xl text-white tw-mb-2">Tejasvi Kolhe</h4>
                       <p class="tw-text-sm text-neutral-400">
                         &copy; 2026 Tejasvi Kolhe. All rights reserved.<br />
-                        Symbiosis Institute of Technology, Nagpur
+                        Symbiosis Institute of Technology, Nagpur <button id="adminPortalBtn" class="admin-lock-btn" title="Admin Portal (Password Required)" aria-label="Admin Portal"><i class="ph ph-lock-key"></i></button>
                       </p>
                     </div>
                   </div>
@@ -1408,5 +1468,109 @@
         }, true);
       })();
     </script>
+
+    <!-- Admin Visitor IP Modal -->
+    <div id="adminVisitorModal">
+      <div class="admin-modal-dialog">
+        <!-- Close Button -->
+        <button id="adminModalClose" class="btn-close btn-close-white position-absolute top-0 end-0 m-4" aria-label="Close"></button>
+
+        <!-- View 1: Password Gate -->
+        <div id="adminLoginView" class="p-4 p-md-5">
+          <div class="admin-login-card" id="adminLoginCard">
+            <div class="d-inline-flex align-items-center justify-content-center bg-dark border border-secondary rounded-circle mb-3" style="width: 64px; height: 64px;">
+              <i class="ph-bold ph-lock-key text-emerald" style="font-size: 1.8rem; color: #10b981;"></i>
+            </div>
+            <h4 class="fw-bold text-white mb-2">Admin Portal</h4>
+            <p class="text-secondary small mb-4">Enter your administrator password to unlock the private Visitor IP Log.</p>
+            
+            <form id="adminLoginForm">
+              <div class="input-group mb-3">
+                <input type="password" id="adminPassInput" class="form-control bg-dark border-secondary text-white" placeholder="Enter password..." required />
+                <button type="button" class="btn btn-outline-secondary text-light" id="togglePassBtn" title="Toggle visibility">
+                  <i class="ph ph-eye"></i>
+                </button>
+              </div>
+              <div id="adminLoginError" class="alert alert-danger py-2 small mb-3" style="display: none;"></div>
+              <button type="submit" class="btn btn-emerald w-100 fw-bold py-2" style="background: #10b981; color: #000;">
+                Unlock Visitor Logs
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- View 2: Visitor IP Logs Dashboard -->
+        <div id="adminDashboardView" class="p-4 p-md-5" style="display: none;">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 pb-3 border-bottom border-secondary border-opacity-25">
+            <div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-50">AUTHORIZED</span>
+                <h4 class="fw-bold text-white mb-0 fs-5">Visitor IP Access Log</h4>
+              </div>
+              <p class="text-secondary small mb-0 mt-1">Real-time visitor public IP addresses, approximate locations, and visit timestamps in Asia/Kolkata (IST).</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <button id="adminRefreshBtn" class="btn btn-sm btn-outline-secondary text-light"><i class="ph-bold ph-arrows-clockwise"></i> Refresh</button>
+              <button id="adminExportBtn" class="btn btn-sm btn-outline-success text-success border-success"><i class="ph-bold ph-download-simple"></i> Export CSV</button>
+              <button id="adminClearBtn" class="btn btn-sm btn-outline-danger text-danger border-danger"><i class="ph-bold ph-trash"></i> Clear</button>
+              <button id="adminLogoutBtn" class="btn btn-sm btn-outline-light"><i class="ph-bold ph-sign-out"></i> Lock</button>
+            </div>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-4 col-sm-6">
+              <div class="p-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25 rounded-3">
+                <span class="text-secondary small d-block">Total Visits Logged</span>
+                <strong class="fs-4 text-white" id="adminStatTotal">0</strong>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <div class="p-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25 rounded-3">
+                <span class="text-secondary small d-block">Unique IP Addresses</span>
+                <strong class="fs-4 text-info" id="adminStatUnique">0</strong>
+              </div>
+            </div>
+            <div class="col-md-4 col-12">
+              <div class="p-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25 rounded-3">
+                <span class="text-secondary small d-block">Latest Visitor (IST)</span>
+                <strong class="small text-white d-block mt-1 text-truncate" id="adminStatLatest">--</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text bg-dark border-secondary text-secondary"><i class="ph ph-magnifying-glass"></i></span>
+              <input type="text" id="adminSearchInput" class="form-control bg-dark border-secondary text-light" placeholder="Search by IP, City, Country, or Date..." />
+            </div>
+          </div>
+
+          <!-- IP Logs Table -->
+          <div class="table-responsive border border-secondary border-opacity-25 rounded-3">
+            <table class="table table-dark table-hover mb-0 align-middle">
+              <thead class="table-dark">
+                <tr class="small text-secondary text-uppercase">
+                  <th>#</th>
+                  <th>Visitor IP Address</th>
+                  <th>Location</th>
+                  <th>Visit Time (IST)</th>
+                  <th>Device &amp; OS</th>
+                  <th>Page / Section</th>
+                  <th>Referral</th>
+                </tr>
+              </thead>
+              <tbody id="adminLogsTbody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visitor IP Logger Script -->
+    <script src="assets/js/visitor-logger.js"></script>
 </body>
 </html>
