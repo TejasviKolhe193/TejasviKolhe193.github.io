@@ -43,8 +43,8 @@
       }
 
       .banner-three-area {
-        padding-top: 20px !important;
-        padding-bottom: 40px !important;
+        padding-top: 15px !important;
+        padding-bottom: 30px !important;
         overflow: visible !important;
       }
 
@@ -54,7 +54,7 @@
         width: 100% !important;
       }
 
-      /* 1. Shifted Lower, Perfectly Centered Giant PORTFOLIO Title */
+      /* 1. Giant PORTFOLIO Title - Restored to Massive Original Size */
       .banner-three-title {
         text-align: center !important;
         display: block !important;
@@ -63,22 +63,22 @@
         margin-right: auto !important;
         text-transform: uppercase !important;
         font-weight: 900 !important;
-        font-size: clamp(65px, 15vw, 220px) !important;
-        line-height: 0.85 !important;
-        letter-spacing: 2px !important;
+        font-size: clamp(90px, 21vw, 360px) !important; /* Huge & bold as original */
+        line-height: 0.82 !important;
+        letter-spacing: -2px !important;
         color: #000000 !important;
         position: relative !important;
         z-index: 1 !important;
-        margin-top: clamp(45px, 6.5vw, 90px) !important; /* Shifted lower as requested */
-        margin-bottom: clamp(130px, 14vw, 200px) !important; /* Space for the bottom half of the photo */
+        margin-top: clamp(20px, 3.5vw, 45px) !important;
+        margin-bottom: clamp(40px, 6vw, 90px) !important;
       }
 
-      /* 2. Photo: Exactly HALF (top ~50%) overlays directly on the PORTFOLIO title */
+      /* 2. Photo Shifted Down Just a Little - Fills Empty Bottom Space & Overlays PORTFOLIO */
       .banner-three-man {
         position: absolute !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
-        top: clamp(45px, 6.5vw, 90px) !important; /* Anchored to match top of title */
+        top: clamp(90px, 11vw, 155px) !important; /* Shifted down just a little */
         bottom: auto !important;
         inset-block-end: auto !important;
         z-index: 3 !important;
@@ -86,12 +86,12 @@
       }
 
       .banner-three-man img.tejasvi-portrait {
-        height: clamp(320px, 28vw, 385px) !important;
+        height: clamp(340px, 28vw, 400px) !important;
         width: auto !important;
-        max-width: 290px !important;
+        max-width: 305px !important;
         object-fit: cover !important;
         border-radius: 24px !important;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: 0 22px 55px rgba(0, 0, 0, 0.32) !important;
         border: 4px solid #ffffff !important;
         pointer-events: auto;
         transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -99,7 +99,7 @@
 
       .banner-three-man img.tejasvi-portrait:hover {
         transform: scale(1.02);
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4) !important;
+        box-shadow: 0 28px 65px rgba(0, 0, 0, 0.42) !important;
       }
 
       .banner-three-wrap {
@@ -109,7 +109,8 @@
 
       @media screen and (max-width: 991px) {
         .banner-three-title {
-          margin-top: 25px !important;
+          font-size: clamp(75px, 19vw, 160px) !important;
+          margin-top: 15px !important;
           margin-bottom: 20px !important;
         }
         .banner-three-man {
@@ -118,12 +119,12 @@
           transform: none !important;
           top: auto !important;
           bottom: auto !important;
-          margin: -90px auto 25px auto !important; /* Overlays top half onto title on mobile */
+          margin: -70px auto 25px auto !important;
           text-align: center !important;
         }
         .banner-three-man img.tejasvi-portrait {
-          max-height: 330px !important;
-          max-width: 250px !important;
+          max-height: 340px !important;
+          max-width: 260px !important;
         }
       }
 
