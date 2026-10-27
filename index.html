@@ -43,48 +43,82 @@
       }
 
       .banner-three-area {
-        padding-bottom: 30px !important;
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
         overflow: visible !important;
       }
 
+      .banner-three-wrapper {
+        position: relative !important;
+        text-align: center !important;
+        width: 100% !important;
+      }
+
+      /* Perfectly Centered Giant PORTFOLIO Title */
+      .banner-three-title {
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-transform: uppercase !important;
+        font-weight: 900 !important;
+        font-size: clamp(65px, 15vw, 230px) !important;
+        line-height: 0.82 !important;
+        letter-spacing: 2px !important;
+        color: #0a0a0a !important;
+        position: relative !important;
+        z-index: 1 !important;
+        margin-bottom: 20px !important;
+      }
+
+      /* Photo Perfectly Centered & Overlapping PORTFOLIO Title */
       .banner-three-man {
-        inset-block-end: 26% !important;
-        bottom: 26% !important;
-        z-index: 2;
-      }
-      @media screen and (max-width: 1200px) {
-        .banner-three-man {
-          inset-block-end: 30% !important;
-          bottom: 30% !important;
-        }
-      }
-      @media screen and (max-width: 768px) {
-        .banner-three-man {
-          inset-block-end: 35% !important;
-          bottom: 35% !important;
-        }
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: 0 !important;
+        inset-block-end: 0 !important;
+        z-index: 3 !important;
+        pointer-events: none;
       }
 
       .banner-three-man img.tejasvi-portrait {
-        max-height: 380px !important;
+        max-height: 385px !important;
         width: auto !important;
-        max-width: 285px !important;
+        max-width: 290px !important;
         object-fit: cover !important;
         border-radius: 22px !important;
-        box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25) !important;
-        border: 3.5px solid #ffffff !important;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28) !important;
+        border: 4px solid #ffffff !important;
+        pointer-events: auto;
         transition: transform 0.4s ease, box-shadow 0.4s ease;
       }
+
       .banner-three-man img.tejasvi-portrait:hover {
         transform: scale(1.02);
-        box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35) !important;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.38) !important;
       }
 
-      .banner-three-title {
-        font-size: clamp(80px, 15vw, 240px) !important;
-        line-height: 0.85 !important;
-        text-transform: lowercase !important;
-        letter-spacing: -2px !important;
+      .banner-three-wrap {
+        position: relative !important;
+        z-index: 2 !important;
+      }
+
+      @media screen and (max-width: 991px) {
+        .banner-three-man {
+          position: relative !important;
+          left: auto !important;
+          transform: none !important;
+          bottom: auto !important;
+          inset-block-end: auto !important;
+          margin: -50px auto 25px auto !important;
+          text-align: center !important;
+        }
+        .banner-three-man img.tejasvi-portrait {
+          max-height: 320px !important;
+          max-width: 240px !important;
+        }
       }
 
       .badge-tag {
@@ -550,9 +584,7 @@
                       alt="Tejasvi Kolhe"
                     />
                   </div>
-                  <h1 class="banner-three-title text-black tw-mb-30">
-                    portfolio
-                  </h1>
+                  <h1 class="banner-three-title text-black text-center tw-mb-30">PORTFOLIO</h1>
                   <div
                     class="banner-three-wrap d-flex justify-content-between align-items-end position-relative z-1"
                   >
